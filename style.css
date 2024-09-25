@@ -18,6 +18,31 @@ body {
 	background-position: center;
 	background-attachment: fixed; /* ทำให้พื้นหลังอยู่กับที่เมื่อเลื่อนหน้า */
 	background: linear-gradient(to bottom, #1f2c37, #28313c);
+	perspective: 1px; /* เพิ่ม perspective เพื่อให้เกิด Parallax effect */
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;   
+
+    background-size: cover;
+    background-position: center;
+    z-index: -1; /* วางไว้หลังเนื้อหา */
+    transform: translateZ(0); /* กำหนดตำแหน่งเริ่มต้น */
+    will-change: transform; /* บอกเบราว์เซอร์ว่าจะเปลี่ยน transform เพื่อเพิ่มประสิทธิภาพ */
+}
+
+body::before {
+    animation: parallaxScroll 20s linear infinite; /* เพิ่ม animation */
+}
+
+@keyframes parallaxScroll {
+    from { transform: translateZ(-1px); }
+    to { transform: translateZ(1px); }
 }
 
 /* ปรับแต่ง Header */
@@ -48,6 +73,18 @@ h1 {
     position: relative;
     z-index: 1;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); /* เพิ่มเงาให้ข้อความ */
+	animation: fadeInUp 1s ease; /* แอนิเมชั่นเลื่อนขึ้นและเฟดเข้า */
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 h1, h2 {
@@ -126,6 +163,7 @@ nav a:hover {
     color: var(--highlight-color);
     transform: scale(1.1);
 	z-index: 2;
+    text-shadow: 0 0 5px var(--highlight-color);
 }
 
 .nav-menu {
@@ -175,10 +213,32 @@ main {
 section {
     margin-bottom: 30px;
     background-color: rgba(0, 0, 0, 0.2); /* พื้นหลังโปร่งใส */
-    padding: 20px;
+    padding: 30px; /* เพิ่ม padding เพื่อเพิ่ม white space */
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* เงาเข้มขึ้น */
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+section h2 {
+    /* ... (โค้ดเดิม) ... */
+    font-size: 1.8em; /* เพิ่มขนาด heading */
+    margin-bottom: 20px; /* เพิ่มระยะห่างระหว่าง heading และเนื้อหา */
+}
+
+section p {
+    line-height: 1.6; /* ปรับระยะห่างระหว่างบรรทัด */
+}
+
+section h3 {
+    color: var(--highlight-color); 
+}
+
+section p {
+    font-size: 1.1em;
+}
+
+section ul li {
+    font-size: 0.9em;
 }
 
 section:hover {
@@ -219,7 +279,8 @@ button {
 
 button:hover {
     background-color: #d65db6;
-    box-shadow: 0px 3px 0px rgba(0, 0, 0, 0.4); /* เงาเปลี่ยนเมื่อ hover */
+    transform: scale(1.05); /* ขยายปุ่มเมื่อ hover */
+    box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.3); /* เพิ่มเงาเมื่อ hover */
 }
 
 /* ปรับแต่งรูปภาพ */
@@ -234,6 +295,7 @@ img {
 
 img:hover {
     transform: scale(1.05);
+	box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 img.loaded {
@@ -315,4 +377,10 @@ footer .contact-links a {
 
 footer .contact-links a:hover {
     text-decoration: underline;
+}
+
+main .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับจำนวนคอลัมน์ตามขนาดหน้าจอ */
+    gap: 20px; /* ระยะห่างระหว่าง section */
 }
