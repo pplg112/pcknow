@@ -27,6 +27,7 @@ header {
     text-align: center;
     position: relative;
     overflow: hidden;
+	z-index: 1;
 }
 
 header::before { 
@@ -71,7 +72,7 @@ nav {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     padding: 0 20px; /* เพิ่ม padding */
-	z-index: 2; /* หรือค่าที่สูงกว่าองค์ประกอบอื่นๆ ที่อาจบัง nav */
+	z-index: 3; /* หรือค่าที่สูงกว่าองค์ประกอบอื่นๆ ที่อาจบัง nav */
 }
 
 nav ul {
@@ -244,73 +245,31 @@ h1 {
 }
 
 @media (max-width: 767px) {
-    .hamburger {
-        display: block; /* แสดงปุ่ม hamburger */
-    }
-	
-	nav {
-        flex-direction: row; /* เปลี่ยนเป็นแนวนอน */
-        flex-wrap: wrap; /* อนุญาตให้รายการขึ้นบรรทัดใหม่ได้ */
-        overflow-x: auto; /* เพิ่ม scrollbar หากรายการล้น */
-		z-index: 2;
-    }
-
     nav ul {
         flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้ง */
-        align-items: flex-start; 
-		display: none; /* ซ่อนเมนูหลัก */
-		z-index: 2;
+        align-items: center; 
+        text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
     }
 
     nav li {
-        margin: 0 10px;
-		z-index: 2;
+        margin: 10px 0; /* ปรับระยะห่างระหว่างรายการ */
     }
-	
-	.nav-menu {
-        display: block; /* เปลี่ยนเป็น block เพื่อให้เมนูแสดงเต็มความกว้าง */
-		z-index: 2;
-    }
-	
-	.nav-menu.active ul { /* แสดงเมนูเมื่อเปิดใช้งาน */
-        display: flex;
-        flex-direction: column;
-		z-index: 2;
+
+    section {
+        width: 90%; /* ปรับความกว้างของ section */
     }
 
     /* ปรับแต่งส่วนอื่นๆ ตามต้องการ */
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     nav ul {
-        flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้งบนหน้าจอขนาดเล็ก */
-		z-index: 2;
+        /* ปรับแต่งรูปแบบ nav bar สำหรับ iPad ตามต้องการ */
     }
-}
 
-section {
-    width: 80%; /* กำหนดความกว้างเป็นเปอร์เซ็นต์ */
-    margin: 0 auto 30px; /* จัดกึ่งกลาง */
-	z-index: 2;
-}
-
-@media (max-width: 768px) {
     section {
-        width: 90%; /* ปรับความกว้างบนหน้าจอขนาดเล็ก */
+        width: 70%; /* ปรับความกว้างของ section */
     }
-}
 
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-	z-index: 2;
-}
-
-.hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-	z-index: 2;
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);  
-    z-index: 2; 
+    /* ปรับแต่งส่วนอื่นๆ ตามต้องการ */
 }
