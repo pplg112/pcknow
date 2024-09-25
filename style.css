@@ -334,6 +334,39 @@ h1 {
     section {
         width: 90%; /* ปรับความกว้างของ section */
     }
+	
+	 .section-content { /* ปรับแต่งคอนเทนเนอร์ในแต่ละ section */
+        display: flex;
+        flex-direction: column; /* จัดเรียงเนื้อหาเป็นแนวตั้ง */
+    }
+
+    .section-content img, .section-content iframe {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .cpu-recommendations {
+        display: flex;
+        flex-direction: column; /* จัดเรียงคำแนะนำ CPU เป็นแนวตั้ง */
+    }
+
+    .cpu-recommendations article {
+        margin-bottom: 20px;
+    }
+	
+	h1, h2 {
+        font-size: 1.5em; 
+    }
+
+    section p {
+        font-size: 1em;
+    }
+
+    section ul li {
+        font-size: 0.8em;
+    }
+
 
     /* ปรับแต่งส่วนอื่นๆ ตามต้องการ */
 }
@@ -384,3 +417,4 @@ main .container {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* ปรับจำนวนคอลัมน์ตามขนาดหน้าจอ */
     gap: 20px; /* ระยะห่างระหว่าง section */
 }
+
