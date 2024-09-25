@@ -185,13 +185,19 @@ h1 {
 }
 
 @media (max-width: 767px) {
+    nav {
+        flex-direction: row; /* เปลี่ยนเป็นแนวนอน */
+        flex-wrap: wrap; /* อนุญาตให้รายการขึ้นบรรทัดใหม่ได้ */
+        overflow-x: auto; /* เพิ่ม scrollbar หากรายการล้น */
+    }
+
     nav ul {
         flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้ง */
         align-items: flex-start; 
     }
 
     nav li {
-        margin: 10px 0; 
+        margin: 0 10px;
     }
 
     /* ปรับแต่งส่วนอื่นๆ ตามต้องการ */
