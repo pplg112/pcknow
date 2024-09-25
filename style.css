@@ -245,7 +245,13 @@ h1 {
 }
 
 @media (max-width: 767px) {
+    nav {
+        overflow-x: auto; /* เพิ่ม scrollbar แนวนอนเมื่อเนื้อหาล้น */
+    }
+	
     nav ul {
+	    flex-wrap: nowrap; /* ป้องกันไม่ให้รายการขึ้นบรรทัดใหม่ */
+        justify-content: flex-start; /* จัดรายการชิดซ้าย */
         flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้ง */
         align-items: center; 
         text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
@@ -263,10 +269,15 @@ h1 {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-    nav ul {
-        /* ปรับแต่งรูปแบบ nav bar สำหรับ iPad ตามต้องการ */
+    nav {
+        overflow-x: auto; /* เพิ่ม scrollbar แนวนอนเมื่อเนื้อหาล้น */
     }
 
+    nav ul {
+        flex-wrap: nowrap; /* ป้องกันไม่ให้รายการขึ้นบรรทัดใหม่ */
+        justify-content: flex-start; /* จัดรายการชิดซ้าย */
+    }
+	
     section {
         width: 70%; /* ปรับความกว้างของ section */
     }
