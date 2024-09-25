@@ -17,6 +17,7 @@ body {
 	background-image: url("https://wallpapercave.com/wp/wp2757877.gif");
 	background-size: cover;
 	background-position: center;
+	background-attachment: fixed; /* ทำให้พื้นหลังอยู่กับที่เมื่อเลื่อนหน้า */
 }
 
 /* ปรับแต่ง Header */
@@ -47,6 +48,20 @@ h1 {
     position: relative;
     z-index: 1;
     text-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5); /* เพิ่มเงาให้ข้อความ */
+}
+
+h1, h2 {
+    /* ... (โค้ดเดิม) ... */
+    animation: textGlow 2s infinite alternate; /* เพิ่ม animation */
+}
+
+@keyframes textGlow {
+    0% {
+        text-shadow: 0 0 5px var(--secondary-color);
+    }
+    100% {
+        text-shadow: 0 0 15px var(--secondary-color), 0 0 25px var(--secondary-color);
+    }
 }
 
 nav {
@@ -163,12 +178,12 @@ section {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* เงาเข้มขึ้น */
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transform: scale(1.02); /* ขยายเล็กน้อยเมื่อ hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* เพิ่มเงาเมื่อ hover */
 }
 
 h2 {
@@ -213,11 +228,16 @@ img {
     height: auto;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-    transition: transform 0.3s ease;
+    opacity: 0; /* ซ่อนรูปภาพตอนแรก */
+    transition: opacity 0.5s ease-in-out; /* เพิ่ม transition */
 }
 
 img:hover {
     transform: scale(1.05);
+}
+
+img.loaded {
+    opacity: 1; /* แสดงรูปภาพเมื่อโหลดเสร็จ */
 }
 
 /* เพิ่มลูกเล่น: แอนิเมชั่นกระพริบให้กับ h1 */
@@ -280,4 +300,19 @@ h1 {
     }
 
     /* ปรับแต่งส่วนอื่นๆ ตามต้องการ */
+}
+
+footer .contact-links {
+    text-align: center; /* จัดกึ่งกลาง */
+    margin-top: 10px; 
+}
+
+footer .contact-links a {
+    color: var(--text-color); /* ใช้สีเดียวกับข้อความทั่วไป */
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer .contact-links a:hover {
+    text-decoration: underline;
 }
