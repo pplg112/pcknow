@@ -232,6 +232,10 @@ h1 {
 }
 
 @media (max-width: 767px) {
+    body {
+        font-size: 14px; /* หรือขนาดอื่นๆ ที่คุณต้องการ */
+    }
+	
     nav {
         overflow-x: auto; /* เพิ่ม scrollbar แนวนอนเมื่อเนื้อหาล้น */
     }
@@ -253,6 +257,10 @@ h1 {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+    body {
+        font-size: 14px; /* หรือขนาดอื่นๆ ที่คุณต้องการ */
+    }
+	
     nav {
         overflow-x: auto; /* เพิ่ม scrollbar แนวนอนเมื่อเนื้อหาล้น */
     }
