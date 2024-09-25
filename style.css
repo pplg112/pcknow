@@ -252,8 +252,6 @@ h1 {
     nav ul {
 	    flex-wrap: nowrap; /* ป้องกันไม่ให้รายการขึ้นบรรทัดใหม่ */
         justify-content: flex-start; /* จัดรายการชิดซ้าย */
-        flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้ง */
-        align-items: center; 
         text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
     }
 
