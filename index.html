@@ -11,13 +11,20 @@
     <header>
         <h1>PC Know</h1>
         <nav> 
-            <ul>
-                <li><a href="cpu.html">CPU</a></li>
-                <li><a href="gpu.html">GPU</a></li>
-                <li><a href="ram.html">RAM</a></li>
-                <li><a href="storage.html">M.2 - SSD</a></li>
-                <li><a href="others.html">อุปกรณ์เสริม</a></li>
-            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-menu"> 
+                <ul>
+                    <li><a href="cpu.html">CPU</a></li>
+                    <li><a href="gpu.html">GPU</a></li>
+                    <li><a href="ram.html">RAM</a></li>
+                    <li><a href="storage.html">M.2 - SSD</a></li>
+                    <li><a href="others.html">อุปกรณ์เสริม</a></li>
+                </ul>
+            </div>
         </nav>
     </header>
 
@@ -43,6 +50,17 @@
     <footer>
         <p>&copy; 2023 PC Know</p>
     </footer>
+
+    <script>
+        // JavaScript สำหรับควบคุม hamburger menu
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+
+        hamburger.addEventListener("click", () => {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        });
+    </script> 
 
 </body>
 </html>

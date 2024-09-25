@@ -71,6 +71,7 @@ nav {
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     padding: 0 20px; /* เพิ่ม padding */
+	z-index: 2; /* หรือค่าที่สูงกว่าองค์ประกอบอื่นๆ ที่อาจบัง nav */
 }
 
 nav ul {
@@ -80,10 +81,12 @@ nav ul {
     display: flex;
 	justify-content: center;
     align-items: center;
+	z-index: 2;
 }
 
 nav li {
     margin: 0 15px; /* เพิ่มระยะห่างระหว่างรายการ */
+	z-index: 2;
 }
 
 nav a {
@@ -92,6 +95,7 @@ nav a {
     transition: all 0.3s ease;
     font-weight: bold;
     position: relative; /* เพิ่มเพื่อจัดการลูกเล่น */
+	z-index: 2;
 }
 
 /* ลูกเล่น: เพิ่มเส้นใต้เมื่อ hover */
@@ -106,16 +110,19 @@ nav a::after {
     transform: scaleX(0);
     transform-origin: left;
     transition: transform 0.3s ease;
+	z-index: 2;
 }
 
 nav a:hover::after {
     transform: scaleX(1);
+	z-index: 2;
 }
 
 /* ลูกเล่น: ขยายและเปลี่ยนสีเมื่อ hover */
 nav a:hover {
     color: var(--highlight-color);
     transform: scale(1.1);
+	z-index: 2;
 }
 
 .nav-menu {
@@ -129,26 +136,31 @@ nav a:hover {
     height: 0; /* ซ่อนเมนูตอนแรก */
     overflow: hidden;
     transition: height 0.3s ease;
+	z-index: 2;
 }
 
 .nav-menu.active {
     height: auto; /* แสดงเมนูเมื่อเปิด */
+	z-index: 2;
 }
 
 .nav-menu ul {
     list-style: none;
     padding: 20px;
     margin: 0;
+	z-index: 2;
 }
 
 .nav-menu li {
     margin: 10px 0;
+	z-index: 2;
 }
 
 .nav-menu a {
     color: var(--text-color);
     text-decoration: none;
     font-weight: bold;
+	z-index: 2;
 }
 
 /* ปรับแต่งส่วนเนื้อหาหลัก */
@@ -240,20 +252,30 @@ h1 {
         flex-direction: row; /* เปลี่ยนเป็นแนวนอน */
         flex-wrap: wrap; /* อนุญาตให้รายการขึ้นบรรทัดใหม่ได้ */
         overflow-x: auto; /* เพิ่ม scrollbar หากรายการล้น */
+		z-index: 2;
     }
 
     nav ul {
         flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้ง */
         align-items: flex-start; 
 		display: none; /* ซ่อนเมนูหลัก */
+		z-index: 2;
     }
 
     nav li {
         margin: 0 10px;
+		z-index: 2;
     }
 	
 	.nav-menu {
         display: block; /* เปลี่ยนเป็น block เพื่อให้เมนูแสดงเต็มความกว้าง */
+		z-index: 2;
+    }
+	
+	.nav-menu.active ul { /* แสดงเมนูเมื่อเปิดใช้งาน */
+        display: flex;
+        flex-direction: column;
+		z-index: 2;
     }
 
     /* ปรับแต่งส่วนอื่นๆ ตามต้องการ */
@@ -262,12 +284,14 @@ h1 {
 @media (max-width: 768px) {
     nav ul {
         flex-direction: column; /* เปลี่ยนเมนูเป็นแนวตั้งบนหน้าจอขนาดเล็ก */
+		z-index: 2;
     }
 }
 
 section {
     width: 80%; /* กำหนดความกว้างเป็นเปอร์เซ็นต์ */
     margin: 0 auto 30px; /* จัดกึ่งกลาง */
+	z-index: 2;
 }
 
 @media (max-width: 768px) {
@@ -278,13 +302,15 @@ section {
 
 .hamburger.active .bar:nth-child(1) {
     transform: translateY(8px) rotate(45deg);
+	z-index: 2;
 }
 
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
+	z-index: 2;
 }
 
 .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);   
-
+    transform: translateY(-8px) rotate(-45deg);  
+    z-index: 2; 
 }
